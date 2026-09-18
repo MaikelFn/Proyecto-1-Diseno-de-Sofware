@@ -1,15 +1,16 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
 import { Search } from 'lucide-react'
 
 function Encabezado() {
   const links = [
-    'Inicio',
-    'Municipalidad',
-    'Servicios',
-    'Trámites',
-    'Proyectos',
-    'Noticias',
-    'Contacto',
+    { name: 'Inicio', path: '/' },
+    { name: 'Municipalidad', path: '/municipalidad' },
+    { name: 'Servicios', path: '/servicios' },
+    { name: 'Trámites', path: '/tramites' },
+    { name: 'Proyectos', path: '/proyectos' },
+    { name: 'Noticias', path: '/noticias' },
+    { name: 'Contacto', path: '/contacto' },
   ]
 
   return (
@@ -17,11 +18,13 @@ function Encabezado() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
         <div className="flex items-center gap-3">
-          <img
-            src={logo}
-            alt="Escudo de la Municipalidad de Limón"
-            className="w-16 h-16 object-contain"
-          />
+          <Link to="/">
+            <img
+              src={logo}
+              alt="Escudo de la Municipalidad de Limón"
+              className="w-16 h-16 object-contain"
+            />
+          </Link>
 
           <div className="leading-tight">
             <h1 className="text-lg font-bold text-slate-900">
@@ -35,13 +38,13 @@ function Encabezado() {
 
         <nav className="hidden lg:flex items-center gap-7">
           {links.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+            <Link
+              key={link.name}
+              to={link.path}
               className="text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors"
             >
-              {link}
-            </a>
+              {link.name}
+            </Link>
           ))}
 
           <button className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition">

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   MapPin,
   Phone,
@@ -9,7 +10,7 @@ import logo from '../assets/images/logo.png'
 
 function PiePagina() {
   return (
-    <footer id="contacto" className="bg-slate-950 text-white">
+    <footer className="bg-slate-950 text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -49,25 +50,25 @@ function PiePagina() {
             </h3>
 
             <div className="flex flex-col gap-3 text-sm text-slate-400">
-              <a href="#inicio" className="hover:text-lime-300 transition">
+              <Link to="/" className="hover:text-lime-300 transition">
                 Inicio
-              </a>
+              </Link>
 
-              <a href="#servicios" className="hover:text-lime-300 transition">
+              <Link to="/servicios" className="hover:text-lime-300 transition">
                 Servicios
-              </a>
+              </Link>
 
-              <a href="#tramites" className="hover:text-lime-300 transition">
+              <Link to="/tramites" className="hover:text-lime-300 transition">
                 Trámites
-              </a>
+              </Link>
 
-              <a href="#proyectos" className="hover:text-lime-300 transition">
+              <Link to="/proyectos" className="hover:text-lime-300 transition">
                 Proyectos
-              </a>
+              </Link>
 
-              <a href="#noticias" className="hover:text-lime-300 transition">
+              <Link to="/noticias" className="hover:text-lime-300 transition">
                 Noticias
-              </a>
+              </Link>
             </div>
           </div>
 

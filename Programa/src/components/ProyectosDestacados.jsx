@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   Bridge,
   Construction,
@@ -57,13 +58,13 @@ function ProyectosDestacados() {
             </p>
           </div>
 
-          <a
-            href="#"
+          <Link
+            to="/proyectos"
             className="inline-flex items-center gap-2 font-semibold text-emerald-700"
           >
             Ver todos los proyectos
             <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -100,13 +101,13 @@ function ProyectosDestacados() {
                     {proyecto.descripcion}
                   </p>
 
-                  <a
-                    href="#"
+                  <Link
+                    to="/proyectos"
                     className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 group-hover:gap-3 transition-all"
                   >
                     Ver detalles
                     <ArrowRight size={17} />
-                  </a>
+                  </Link>
 
                 </div>
 

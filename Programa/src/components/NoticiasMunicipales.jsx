@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 import noticia1 from '../assets/images/noticia-1.png'
@@ -63,13 +64,13 @@ function NoticiasMunicipales() {
                 Inversión que contempla obras en Talamanca, Valle La Estrella y Guácimo.
               </p>
 
-              <a
-                href="#"
+              <Link
+                to="/noticias"
                 className="mt-6 inline-flex items-center gap-2 font-semibold text-emerald-700 hover:gap-3 transition-all"
               >
                 Leer más
                 <ArrowRight size={18} />
-              </a>
+              </Link>
             </div>
 
           </article>
@@ -102,13 +103,13 @@ function NoticiasMunicipales() {
                       {noticia.titulo}
                     </h3>
 
-                    <a
-                      href="#"
+                    <Link
+                      to="/noticias"
                       className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:gap-3 transition-all"
                     >
                       Leer más
                       <ArrowRight size={17} />
-                    </a>
+                    </Link>
 
                   </div>
 
@@ -121,13 +122,13 @@ function NoticiasMunicipales() {
         </div>
 
         <div className="mt-10 text-center">
-          <a
-            href="#"
+          <Link
+            to="/noticias"
             className="inline-flex items-center gap-2 font-semibold text-emerald-700"
           >
             Ver todas las noticias
             <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
 
       </div>

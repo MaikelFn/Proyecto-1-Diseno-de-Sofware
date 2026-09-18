@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   CircleDollarSign,
   FileText,
@@ -12,31 +13,31 @@ function AccesosRapidos() {
       nombre: 'Impuestos',
       descripcion: 'Consulte información relacionada con impuestos municipales.',
       icono: CircleDollarSign,
-      enlace: '#impuestos',
+      enlace: '/servicios',
     },
     {
       nombre: 'Trámites',
       descripcion: 'Acceda a los principales trámites y solicitudes.',
       icono: FileText,
-      enlace: '#tramites',
+      enlace: '/tramites',
     },
     {
       nombre: 'Ventanilla Única',
       descripcion: 'Encuentre información y atención municipal en un solo lugar.',
       icono: Building2,
-      enlace: '#ventanilla',
+      enlace: '/servicios',
     },
     {
       nombre: 'Denuncias',
       descripcion: 'Reporte situaciones o comuníquese con la municipalidad.',
       icono: Megaphone,
-      enlace: '#denuncias',
+      enlace: '/contacto',
     },
     {
       nombre: 'Contacto',
       descripcion: 'Consulte teléfonos, correo, horario y ubicación.',
       icono: Phone,
-      enlace: '#contacto',
+      enlace: '/contacto',
     },
   ]
 
@@ -62,9 +63,9 @@ function AccesosRapidos() {
             const Icono = acceso.icono
 
             return (
-              <a
+              <Link
                 key={acceso.nombre}
-                href={acceso.enlace}
+                to={acceso.enlace}
                 className="group bg-white border border-slate-200 rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-emerald-200 transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-700 group-hover:text-white transition-colors duration-300">
@@ -78,7 +79,7 @@ function AccesosRapidos() {
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">
                   {acceso.descripcion}
                 </p>
-              </a>
+              </Link>
             )
           })}
         </div>

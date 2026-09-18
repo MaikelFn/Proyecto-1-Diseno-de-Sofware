@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   HandCoins,
   MapPinned,
@@ -77,10 +78,10 @@ function ServiciosMunicipales() {
                       {servicio.descripcion}
                     </p>
 
-                    <button className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 group-hover:gap-3 transition-all">
+                    <Link to="/servicios" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 group-hover:gap-3 transition-all">
                       Más información
                       <ArrowRight size={17} />
-                    </button>
+                    </Link>
                   </div>
 
                 </div>
