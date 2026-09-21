@@ -5,6 +5,7 @@ import Inicio from './pages/Inicio'
 import Municipalidad from './pages/Municipalidad'
 import Alcaldia from './pages/Alcaldia'
 import NuestroCanton from './pages/NuestroCanton'
+import Directorio from './pages/Directorio'
 import PaginaEnConstruccion from './pages/PaginaEnConstruccion'
 import Servicios from './pages/Servicios'
 import Tramites from './pages/Tramites'
@@ -22,6 +23,7 @@ function App() {
         <Route path="/municipalidad" element={<Municipalidad />} />
         <Route path="/alcaldia" element={<Alcaldia />} />
         <Route path="/nuestro-canton" element={<NuestroCanton />} />
+        <Route path="/directorio" element={<Directorio />} />
         <Route path="/en-construccion" element={<PaginaEnConstruccion />} />
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/tramites" element={<Tramites />} />

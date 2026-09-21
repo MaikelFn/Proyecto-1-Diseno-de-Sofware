@@ -316,7 +316,10 @@ function Municipalidad() {
               </Link>
 
               {/* Concejo */}
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+              <Link
+                to="/en-construccion"
+                className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+              >
                 <Users size={27} className="text-lime-300" />
 
                 <h3 className="mt-5 font-bold text-white">
@@ -326,7 +329,12 @@ function Municipalidad() {
                 <p className="mt-2 text-sm text-slate-400">
                   Información relacionada con el Concejo Municipal.
                 </p>
-              </div>
+
+                <ArrowRight
+                  size={18}
+                  className="mt-5 text-lime-300 group-hover:translate-x-1 transition-transform"
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -372,13 +380,10 @@ function Municipalidad() {
 
             {/* Directorio */}
             <Link
-              to="/en-construccion"
+              to="/directorio"
               className="group py-7 grid md:grid-cols-[70px_260px_1fr_30px] gap-5 items-center"
             >
-              <Phone
-                size={27}
-                className="text-emerald-700"
-              />
+              <Phone size={27} className="text-emerald-700" />
 
               <h3 className="font-bold text-slate-900">
                 Directorio telefónico
@@ -390,13 +395,8 @@ function Municipalidad() {
                   <strong className="text-slate-900"> 2758-4444</strong>
                 </p>
 
-                <p className="mt-1">
-                  Fax:
-                  <strong className="text-slate-900"> 2798-2727</strong>
-                </p>
-
-                <span className="inline-block mt-2 font-semibold text-emerald-700">
-                  Ver directorio completo
+                <span className="mt-1 inline-block font-semibold text-emerald-700">
+                  Consultar directorio completo
                 </span>
               </div>
 

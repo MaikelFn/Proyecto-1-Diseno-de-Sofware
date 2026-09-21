@@ -193,7 +193,7 @@ function NuestroCanton() {
       </section>
 
       {/* SICOP */}
-      <section className="py-16 bg-emerald-800">
+      <section className="py-16 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div>
@@ -205,9 +205,9 @@ function NuestroCanton() {
                 Sistema Integrado de Compras Públicas
               </h2>
 
-              <p className="mt-3 max-w-2xl text-emerald-100">
-                Acceda a SICOP para consultar información relacionada con
-                los procesos de contratación pública.
+              <p className="mt-3 max-w-2xl text-slate-300">
+                Acceda a SICOP para consultar información relacionada con los
+                procesos de contratación pública.
               </p>
             </div>
 
@@ -215,7 +215,7 @@ function NuestroCanton() {
               href="https://www.sicop.go.cr/app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-lime-300 text-slate-900 font-semibold px-6 py-3 rounded-xl hover:bg-lime-200 transition-colors shrink-0"
+              className="inline-flex items-center justify-center gap-2 bg-lime-300 text-slate-950 font-semibold px-6 py-3 rounded-xl hover:bg-lime-200 transition-colors shrink-0"
             >
               Acceder a SICOP
               <ExternalLink size={18} />
