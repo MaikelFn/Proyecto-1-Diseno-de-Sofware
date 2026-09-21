@@ -17,12 +17,22 @@ const menus = [
   {
     nombre: 'Gestión Municipal',
     opciones: [
-      { nombre: 'Servicios Municipales', ruta: '/servicios' },
-      { nombre: 'Ventanilla Única', ruta: '/tramites' },
-      { nombre: 'Cobros', ruta: '/tramites' },
-      { nombre: 'Rentas', ruta: '/tramites' },
-      { nombre: 'Seguridad Municipal', ruta: '/servicios' },
-      { nombre: 'Gestión Ambiental', ruta: '/servicios' },
+      {
+        nombre: 'Dirección Administrativa',
+        ruta: '/direccion-administrativa',
+      },
+      {
+        nombre: 'Dirección Financiera',
+        ruta: '/direccion-financiera',
+      },
+      {
+        nombre: 'Dirección de Ingeniería',
+        ruta: '/direccion-ingenieria',
+      },
+      {
+        nombre: 'Dirección de Operaciones y Proyectos',
+        ruta: '/direccion-operaciones',
+      },
     ],
   },
   {
@@ -38,19 +48,19 @@ const menus = [
   {
     nombre: 'Transparencia',
     opciones: [
-      { nombre: 'Acceso a la Información', ruta: '/en-construccion' },
-      { nombre: 'Rendición de Cuentas', ruta: '/en-construccion' },
-      { nombre: 'Participación Ciudadana', ruta: '/en-construccion' },
-      { nombre: 'Datos Abiertos', ruta: '/en-construccion' },
+      { nombre: 'Acceso a la Información', ruta: '/transparencia/acceso' },
+      { nombre: 'Rendición de Cuentas', ruta: '/transparencia/rendicion' },
+      { nombre: 'Participación Ciudadana', ruta: '/transparencia/participacion' },
+      { nombre: 'Datos Abiertos', ruta: '/transparencia/datos' },
     ],
   },
   {
     nombre: 'Turismo',
     opciones: [
-      { nombre: 'Patrimonios', ruta: '/en-construccion' },
-      { nombre: 'Destinos Turísticos', ruta: '/en-construccion' },
-      { nombre: 'Fotos Históricas', ruta: '/en-construccion' },
-      { nombre: 'Comercios Turísticos', ruta: '/en-construccion' },
+      { nombre: 'Patrimonios', ruta: '/turismo/patrimonios' },
+      { nombre: 'Destinos Turísticos', ruta: '/turismo/destinos' },
+      { nombre: 'Fotos Históricas', ruta: '/turismo/fotos' },
+      { nombre: 'Comercios Turísticos', ruta: '/turismo/comercios' },
     ],
   },
   {
