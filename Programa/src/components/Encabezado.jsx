@@ -1,32 +1,107 @@
+import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { ChevronDown, Menu, Search, X } from 'lucide-react'
 import logo from '../assets/images/logo.png'
-import { Search, ChevronDown } from 'lucide-react'
+
+const menus = [
+  {
+    nombre: 'Conózcanos',
+    opciones: [
+      { nombre: 'Municipalidad', ruta: '/municipalidad' },
+      { nombre: 'Nuestro Cantón', ruta: '/nuestro-canton' },
+      { nombre: 'Alcaldía', ruta: '/alcaldia' },
+      { nombre: 'Directorio Telefónico', ruta: '/directorio' },
+      { nombre: 'Organigrama Institucional', ruta: '/en-construccion' },
+    ],
+  },
+  {
+    nombre: 'Gestión Municipal',
+    opciones: [
+      { nombre: 'Servicios Municipales', ruta: '/servicios' },
+      { nombre: 'Ventanilla Única', ruta: '/tramites' },
+      { nombre: 'Cobros', ruta: '/tramites' },
+      { nombre: 'Rentas', ruta: '/tramites' },
+      { nombre: 'Seguridad Municipal', ruta: '/servicios' },
+      { nombre: 'Gestión Ambiental', ruta: '/servicios' },
+    ],
+  },
+  {
+    nombre: 'Obras y Proyectos',
+    opciones: [
+      { nombre: 'Proyectos de Infraestructura', ruta: '/proyectos' },
+      { nombre: 'Distrito Limón Centro', ruta: '/en-construccion' },
+      { nombre: 'Distrito Valle de la Estrella', ruta: '/en-construccion' },
+      { nombre: 'Distrito Río Blanco', ruta: '/en-construccion' },
+      { nombre: 'Distrito Matama', ruta: '/en-construccion' },
+    ],
+  },
+  {
+    nombre: 'Transparencia',
+    opciones: [
+      { nombre: 'Acceso a la Información', ruta: '/en-construccion' },
+      { nombre: 'Rendición de Cuentas', ruta: '/en-construccion' },
+      { nombre: 'Participación Ciudadana', ruta: '/en-construccion' },
+      { nombre: 'Datos Abiertos', ruta: '/en-construccion' },
+    ],
+  },
+  {
+    nombre: 'Turismo',
+    opciones: [
+      { nombre: 'Patrimonios', ruta: '/en-construccion' },
+      { nombre: 'Destinos Turísticos', ruta: '/en-construccion' },
+      { nombre: 'Fotos Históricas', ruta: '/en-construccion' },
+      { nombre: 'Comercios Turísticos', ruta: '/en-construccion' },
+    ],
+  },
+  {
+    nombre: 'En Línea',
+    opciones: [
+      { nombre: 'Consulta', ruta: '/tramites' },
+      { nombre: 'Preguntas Frecuentes', ruta: '/en-construccion' },
+    ],
+  },
+]
 
 function Encabezado() {
-  return (
-    <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+  const [menuMovilAbierto, setMenuMovilAbierto] = useState(false)
+  const [submenuMovil, setSubmenuMovil] = useState(null)
 
-        <div className="flex items-center gap-3">
-          <Link to="/">
-            <img
-              src={logo}
-              alt="Escudo de la Municipalidad de Limón"
-              className="w-16 h-16 object-contain"
-            />
-          </Link>
+  const cerrarMenuMovil = () => {
+    setMenuMovilAbierto(false)
+    setSubmenuMovil(null)
+  }
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-5 px-6 lg:px-8">
+        {/* Identidad municipal */}
+        <Link
+          to="/"
+          onClick={cerrarMenuMovil}
+          className="flex shrink-0 items-center gap-3"
+        >
+          <img
+            src={logo}
+            alt="Escudo de la Municipalidad de Limón"
+            className="h-14 w-14 object-contain"
+          />
 
           <div className="leading-tight">
-            <h1 className="text-lg font-bold text-slate-900">
+            <span className="block text-base font-bold text-slate-900 md:text-lg">
               Municipalidad de Limón
-            </h1>
-            <p className="text-xs text-slate-500">
-              Juntos por un mejor cantón
-            </p>
-          </div>
-        </div>
+            </span>
 
-        <nav className="hidden lg:flex items-center gap-7">
+            <span className="block text-xs text-slate-500">
+              Juntos por un mejor cantón
+            </span>
+          </div>
+        </Link>
+
+        {/* Navegación de escritorio */}
+        <nav
+          aria-label="Navegación principal"
+          className="hidden items-center gap-4 xl:gap-6 lg:flex"
+        >
           <NavLink
             to="/"
             end
@@ -41,118 +116,118 @@ function Encabezado() {
             Inicio
           </NavLink>
 
-          {/* Conózcanos */}
-          <div className="relative group">
-            <NavLink
-              to="/municipalidad"
-              className={({ isActive }) =>
-                `flex items-center gap-1.5 py-7 text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'text-emerald-700'
-                    : 'text-slate-700 hover:text-emerald-700'
-                }`
-              }
-            >
-              Conózcanos
-
-              <ChevronDown
-                size={15}
-                className="transition-transform group-hover:rotate-180"
-              />
-            </NavLink>
-
-            <div
-              className="
-                invisible opacity-0 translate-y-2
-                group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
-                group-focus-within:visible group-focus-within:opacity-100
-                group-focus-within:translate-y-0
-                absolute top-full left-0 z-50
-                w-64 rounded-xl border border-slate-200
-                bg-white p-2 shadow-xl
-                transition-all duration-200
-              "
-            >
-              <Link
-                to="/municipalidad"
-                className="block rounded-lg px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+          {menus.map((menu) => (
+            <div key={menu.nombre} className="group relative">
+              <button
+                type="button"
+                aria-haspopup="true"
+                className="flex h-20 items-center gap-1 whitespace-nowrap text-sm font-medium text-slate-700 transition-colors hover:text-emerald-700 focus:text-emerald-700"
               >
-                Municipalidad
-              </Link>
+                {menu.nombre}
 
-              <Link
-                to="/nuestro-canton"
-                className="block rounded-lg px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                <ChevronDown
+                  size={15}
+                  className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+                />
+              </button>
+
+              <div
+                className="invisible absolute left-0 top-full z-50 w-64 translate-y-2 rounded-xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
               >
-                Nuestro Cantón
-              </Link>
-
-              <Link
-                to="/alcaldia"
-                className="block rounded-lg px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
-              >
-                Alcaldía
-              </Link>
-
-              <Link
-                to="/directorio"
-                className="block rounded-lg px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
-              >
-                Directorio Telefónico
-              </Link>
-
-              <div className="my-1 border-t border-slate-100" />
-
-              <Link
-                to="/en-construccion"
-                className="block rounded-lg px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
-              >
-                Organigrama Institucional
-              </Link>
+                {menu.opciones.map((opcion) => (
+                  <Link
+                    key={opcion.nombre}
+                    to={opcion.ruta}
+                    className="block rounded-lg px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-emerald-50 hover:text-emerald-700 focus:bg-emerald-50 focus:text-emerald-700"
+                  >
+                    {opcion.nombre}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-
-          {/* Conservamos temporalmente las demás secciones */}
-          <NavLink
-            to="/servicios"
-            className="text-sm font-medium text-slate-700 hover:text-emerald-700"
-          >
-            Servicios
-          </NavLink>
-
-          <NavLink
-            to="/tramites"
-            className="text-sm font-medium text-slate-700 hover:text-emerald-700"
-          >
-            Trámites
-          </NavLink>
-
-          <NavLink
-            to="/proyectos"
-            className="text-sm font-medium text-slate-700 hover:text-emerald-700"
-          >
-            Proyectos
-          </NavLink>
-
-          <NavLink
-            to="/noticias"
-            className="text-sm font-medium text-slate-700 hover:text-emerald-700"
-          >
-            Noticias
-          </NavLink>
-
-          <NavLink
-            to="/contacto"
-            className="text-sm font-medium text-slate-700 hover:text-emerald-700"
-          >
-            Contacto
-          </NavLink>
-
-          <button className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition">
-            <Search size={18} />
-          </button>
+          ))}
         </nav>
+
+        {/* Acciones */}
+        <div className="flex shrink-0 items-center gap-2">
+          <Link
+            to="/tramites"
+            aria-label="Ir a consultas y trámites"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-900 transition-colors hover:bg-emerald-100 hover:text-emerald-700"
+          >
+            <Search size={19} />
+          </Link>
+
+          <button
+            type="button"
+            aria-label={menuMovilAbierto ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={menuMovilAbierto}
+            aria-controls="menu-movil"
+            onClick={() => setMenuMovilAbierto(!menuMovilAbierto)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-900 lg:hidden"
+          >
+            {menuMovilAbierto ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {/* Navegación móvil */}
+      {menuMovilAbierto && (
+        <nav
+          id="menu-movil"
+          aria-label="Navegación móvil"
+          className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-slate-200 bg-white px-6 py-4 lg:hidden"
+        >
+          <Link
+            to="/"
+            onClick={cerrarMenuMovil}
+            className="block rounded-lg px-3 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >
+            Inicio
+          </Link>
+
+          {menus.map((menu) => {
+            const abierto = submenuMovil === menu.nombre
+
+            return (
+              <div key={menu.nombre} className="border-b border-slate-100">
+                <button
+                  type="button"
+                  aria-expanded={abierto}
+                  onClick={() =>
+                    setSubmenuMovil(abierto ? null : menu.nombre)
+                  }
+                  className="flex w-full items-center justify-between rounded-lg px-3 py-4 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50"
+                >
+                  {menu.nombre}
+
+                  <ChevronDown
+                    size={17}
+                    className={`transition-transform ${
+                      abierto ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                {abierto && (
+                  <div className="mb-3 ml-3 border-l-2 border-emerald-100 pl-3">
+                    {menu.opciones.map((opcion) => (
+                      <Link
+                        key={opcion.nombre}
+                        to={opcion.ruta}
+                        onClick={cerrarMenuMovil}
+                        className="block rounded-lg px-3 py-3 text-sm text-slate-600 hover:bg-emerald-50 hover:text-emerald-700"
+                      >
+                        {opcion.nombre}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </nav>
+      )}
     </header>
   )
 }
