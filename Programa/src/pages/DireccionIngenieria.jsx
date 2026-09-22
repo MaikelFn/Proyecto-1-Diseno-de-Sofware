@@ -1,27 +1,57 @@
+import { Link } from 'react-router-dom'
 import {
-  Map,
-  Ruler,
-  Trees,
-  Leaf,
+  ArrowRight,
+  Building2,
+  ClipboardList,
   FileSearch,
-  AlertCircle,
-  ArrowRight
+  Leaf,
+  Mail,
+  Map,
+  MapPinned,
+  Ruler,
 } from 'lucide-react'
 
-const areasTerritoriales = [
+const departamentos = [
   {
+    id: 'gestion-tecnica',
     nombre: 'Gestión Técnica y Estudio',
-    descripcion: 'Descripción de las funciones del departamento de análisis y viabilidad técnica.',
+    descripcion:
+      'Área encargada de las funciones de análisis y estudio técnico relacionadas con la gestión municipal.',
     Icono: FileSearch,
   },
   {
-    nombre: 'Zona Marítimo Terrestre',
-    descripcion: 'Información institucional y gestiones relacionadas con el cuidado y administración de la franja costera.',
-    Icono: Trees,
+    id: 'planificacion-territorial',
+    nombre: 'Planificación Territorial y Control Urbano',
+    descripcion:
+      'Área relacionada con la planificación del territorio y el control del desarrollo urbano del cantón.',
+    Icono: Ruler,
   },
   {
+    id: 'zona-maritimo-terrestre',
+    nombre: 'Zona Marítimo Terrestre',
+    descripcion:
+      'Área relacionada con la gestión y administración de la zona marítimo terrestre del cantón.',
+    Icono: MapPinned,
+  },
+  {
+    id: 'catastro',
+    nombre: 'Catastro',
+    descripcion:
+      'Información y gestiones relacionadas con los registros catastrales de los terrenos del cantón.',
+    Icono: Map,
+  },
+  {
+    id: 'bienes-inmuebles',
+    nombre: 'Bienes Inmuebles',
+    descripcion:
+      'Información sobre las gestiones municipales relacionadas con los bienes inmuebles.',
+    Icono: Building2,
+  },
+  {
+    id: 'gestion-ambiental',
     nombre: 'Gestión Ambiental',
-    descripcion: 'Información sobre los servicios y las iniciativas ambientales impulsadas por la municipalidad.',
+    descripcion:
+      'Información sobre las funciones e iniciativas ambientales desarrolladas por la Municipalidad.',
     Icono: Leaf,
   },
 ]
@@ -35,120 +65,114 @@ function DireccionIngenieria() {
           <span className="text-sm font-semibold uppercase tracking-widest text-lime-300">
             Gestión Municipal
           </span>
+
           <h1 className="mt-3 text-4xl font-bold text-white md:text-5xl">
             Dirección de Ingeniería
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
-            Esta página agrupará las áreas relacionadas con el desarrollo urbano, el territorio y la gestión ambiental.
+
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-300">
+            Conozca los departamentos relacionados con la gestión
+            técnica, la planificación territorial, el catastro,
+            los bienes inmuebles y la gestión ambiental del cantón.
           </p>
         </div>
       </section>
 
       {/* Navegación interna */}
-      <section className="border-b border-slate-200 bg-white py-8">
+      <nav
+        aria-label="Departamentos de Dirección de Ingeniería"
+        className="border-b border-slate-200 bg-white py-7"
+      >
         <div className="mx-auto flex max-w-7xl flex-wrap gap-3 px-6 lg:px-8">
-          {[
-            ['Control Urbano', '#control-urbano'],
-            ['Catastro', '#catastro'],
-            ['Gestión Ambiental y ZMT', '#ambiental-zmt'],
-          ].map(([nombre, destino]) => (
+          {departamentos.map((departamento) => (
             <a
-              key={destino}
-              href={destino}
-              className="rounded-full border border-slate-200 px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-emerald-600 hover:bg-emerald-50 hover:text-emerald-700"
+              key={departamento.id}
+              href={`#${departamento.id}`}
+              className="rounded-full border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-emerald-600 hover:bg-emerald-50 hover:text-emerald-700"
             >
-              {nombre}
+              {departamento.nombre}
             </a>
           ))}
         </div>
-      </section>
+      </nav>
 
-      {/* Nota de requisitos pendientes */}
-      <section className="bg-slate-50 pt-12 pb-4">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex gap-4 rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-900 shadow-sm">
-            <AlertCircle size={24} className="shrink-0 text-amber-700" />
-            <p className="text-sm leading-relaxed">
-              <strong>Información en proceso de actualización:</strong> Todavía debemos revisarlas.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Control Urbano y Catastro */}
-      <section id="control-urbano" className="scroll-mt-24 bg-slate-50 py-16">
+      {/* Departamentos */}
+      <section className="bg-slate-50 py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <span className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
-            Desarrollo de la Ciudad
+            Áreas de trabajo
           </span>
+
           <h2 className="mt-3 text-3xl font-bold text-slate-900">
-            Planificación y Propiedades
+            Departamentos de Ingeniería
           </h2>
-          
+
+          <p className="mt-4 max-w-3xl leading-relaxed text-slate-600">
+            Seleccione un departamento para consultar su información.
+            Incorporaremos las funciones, los contactos y los recursos
+            disponibles de cada área.
+          </p>
+
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            
-            {/* Planificación Territorial */}
-            <article className="rounded-2xl border border-slate-200 bg-white p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
-                <Ruler size={24} />
-              </div>
-              <h3 className="mt-6 text-2xl font-bold text-slate-900">
-                Planificación Territorial y Control Urbano
-              </h3>
-              <p className="mt-4 leading-relaxed text-slate-600">
-                Información sobre la planificación y el control estricto del desarrollo urbano en el cantón para asegurar el cumplimiento del ordenamiento jurídico.
-              </p>
-            </article>
+            {departamentos.map((departamento, indice) => (
+              <article
+                key={departamento.id}
+                id={departamento.id}
+                className={`scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-7 md:p-9 ${
+                  indice === 0 || indice === 5
+                    ? 'lg:col-span-2'
+                    : ''
+                }`}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+                    <departamento.Icono size={24} />
+                  </div>
 
-            {/* Catastro */}
-            <article id="catastro" className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
-                <Map size={24} />
-              </div>
-              <h3 className="mt-6 text-2xl font-bold text-slate-900">
-                Catastro y Bienes Inmuebles
-              </h3>
-              <p className="mt-4 leading-relaxed text-slate-600">
-                Servicios y formularios disponibles para los ciudadanos sobre las inscripciones y variaciones de sus terrenos y propiedades.
-              </p>
-            </article>
+                  <div>
+                    <span className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
+                      Dirección de Ingeniería
+                    </span>
 
-          </div>
-        </div>
-      </section>
+                    <h3 className="mt-2 text-xl font-bold text-slate-900">
+                      {departamento.nombre}
+                    </h3>
 
-      {/* Áreas de Estudio, ZMT y Ambiente */}
-      <section id="ambiental-zmt" className="scroll-mt-24 bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <span className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
-            Sostenibilidad
-          </span>
-          <h2 className="mt-3 text-3xl font-bold text-slate-900">
-            Gestión Ambiental y Territorio
-          </h2>
-          
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {areasTerritoriales.map((area) => (
-              <article key={area.nombre} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <area.Icono size={25} className="text-emerald-700" />
-                <h3 className="mt-5 font-bold text-slate-900">{area.nombre}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{area.descripcion}</p>
+                    <p className="mt-4 max-w-3xl leading-relaxed text-slate-600">
+                      {departamento.descripcion}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Aquí agregaremos el contenido original
+                    de cada departamento. */}
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contacto */}
-      <section className="bg-slate-950 py-14">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+      {/* Acceso al directorio */}
+      <section className="bg-slate-950 py-12">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <div>
-            <h2 className="text-2xl font-bold text-white">¿Necesita contactar con un departamento?</h2>
-            <p className="mt-2 text-slate-300">Consulte los teléfonos y correos institucionales en el directorio municipal.</p>
+            <h2 className="text-xl font-bold text-white">
+              ¿Necesita contactar con un departamento?
+            </h2>
+
+            <p className="mt-2 text-slate-300">
+              Consulte los teléfonos y correos institucionales
+              en el directorio municipal.
+            </p>
           </div>
-          <a href="/directorio" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-lime-300 px-6 py-3 font-semibold text-slate-950 transition-colors hover:bg-lime-200">
-            Consultar directorio <ArrowRight size={18} />
-          </a>
+
+          <Link
+            to="/directorio"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-lime-300 px-6 py-3 font-semibold text-slate-950 transition-colors hover:bg-lime-200"
+          >
+            Consultar directorio
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
     </main>
