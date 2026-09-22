@@ -1,7 +1,18 @@
 import { useState } from 'react'
-import { MapPin, Phone, Mail, Store } from 'lucide-react'
+import { 
+  MapPin, 
+  Phone, 
+  Mail, 
+  Store, 
+  Coffee, 
+  UtensilsCrossed, 
+  Bed, 
+  Bus, 
+  Compass, 
+  ShoppingCart 
+} from 'lucide-react'
 
-// Base de datos extraída de las imágenes
+// Base de datos de comercios
 const comercios = [
   // Cafeterías
   { categoria: 'Cafeterías', nombre: 'Coffee Shop El Crucero', telefono: '2758-7003', direccion: 'Al Frente de JAPDEVA', correo: 'coffeeshopelcrucero@gmail.com' },
@@ -45,6 +56,20 @@ const comercios = [
 ]
 
 const categorias = ['Todos', 'Cafeterías', 'Restaurantes', 'Bares y Restaurantes', 'Hoteles', 'Aventureros', 'Transportes', 'Supermercados']
+
+// Función que devuelve el ícono correcto según la categoría
+const obtenerIconoPorCategoria = (categoria) => {
+  switch(categoria) {
+    case 'Cafeterías': return Coffee;
+    case 'Bares y Restaurantes':
+    case 'Restaurantes': return UtensilsCrossed;
+    case 'Hoteles': return Bed;
+    case 'Transportes': return Bus;
+    case 'Aventureros': return Compass;
+    case 'Supermercados': return ShoppingCart;
+    default: return Store;
+  }
+}
 
 function ComerciosTuristicos() {
   const [categoriaActiva, setCategoriaActiva] = useState('Todos')
@@ -92,44 +117,50 @@ function ComerciosTuristicos() {
 
           {/* Grid de Tarjetas */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {comerciosFiltrados.map((comercio, index) => (
-              <article key={index} className="flex flex-col rounded-2xl border border-slate-200 bg-white p-7 hover:shadow-lg transition-shadow">
-                <div className="mb-5 flex items-center gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
-                    <Store size={22} />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
-                      {comercio.categoria}
-                    </span>
-                    <h3 className="text-lg font-bold text-slate-900 leading-tight mt-1">
-                      {comercio.nombre}
-                    </h3>
-                  </div>
-                </div>
+            {comerciosFiltrados.map((comercio, index) => {
+              
+              // Aquí asignamos el ícono dinámico
+              const IconoCategoria = obtenerIconoPorCategoria(comercio.categoria);
 
-                <div className="mt-auto space-y-3 border-t border-slate-100 pt-5">
-                  <div className="flex items-start gap-3 text-sm text-slate-600">
-                    <MapPin size={16} className="shrink-0 text-emerald-700 mt-0.5" />
-                    <span className="leading-relaxed">{comercio.direccion}</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-3 text-sm text-slate-600">
-                    <Phone size={16} className="shrink-0 text-emerald-700" />
-                    <span>{comercio.telefono}</span>
-                  </div>
-
-                  {comercio.correo && (
-                    <div className="flex items-center gap-3 text-sm text-slate-600">
-                      <Mail size={16} className="shrink-0 text-emerald-700" />
-                      <a href={`mailto:${comercio.correo}`} className="hover:text-emerald-700 break-all">
-                        {comercio.correo}
-                      </a>
+              return (
+                <article key={index} className="flex flex-col rounded-2xl border border-slate-200 bg-white p-7 hover:shadow-lg transition-shadow">
+                  <div className="mb-5 flex items-center gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+                      <IconoCategoria size={22} />
                     </div>
-                  )}
-                </div>
-              </article>
-            ))}
+                    <div>
+                      <span className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
+                        {comercio.categoria}
+                      </span>
+                      <h3 className="text-lg font-bold text-slate-900 leading-tight mt-1">
+                        {comercio.nombre}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto space-y-3 border-t border-slate-100 pt-5">
+                    <div className="flex items-start gap-3 text-sm text-slate-600">
+                      <MapPin size={16} className="shrink-0 text-emerald-700 mt-0.5" />
+                      <span className="leading-relaxed">{comercio.direccion}</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-3 text-sm text-slate-600">
+                      <Phone size={16} className="shrink-0 text-emerald-700" />
+                      <span>{comercio.telefono}</span>
+                    </div>
+
+                    {comercio.correo && (
+                      <div className="flex items-center gap-3 text-sm text-slate-600">
+                        <Mail size={16} className="shrink-0 text-emerald-700" />
+                        <a href={`mailto:${comercio.correo}`} className="hover:text-emerald-700 break-all">
+                          {comercio.correo}
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </article>
+              )
+            })}
           </div>
 
         </div>
