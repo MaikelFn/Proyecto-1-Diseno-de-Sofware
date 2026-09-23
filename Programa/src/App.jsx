@@ -22,6 +22,7 @@ import Patrimonios from './pages/Patrimonios'
 import Destinos from './pages/Destinos'
 import FotosHistoricas from './pages/FotosHistoricas'
 import Comercios from './pages/Comercios'
+import Consulta from './pages/Consulta'
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/contacto" element={<Contacto />} />
+        <Route path="/en-linea/consulta" element={<Consulta />} />
         {/* Cualquier ruta que no exista caerá aquí */}
         <Route path="*" element={<PaginaEnConstruccion />} />
       </Routes>

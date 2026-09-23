@@ -66,7 +66,7 @@ const menus = [
   {
     nombre: 'En Línea',
     opciones: [
-      { nombre: 'Consulta', ruta: '/tramites' },
+      { nombre: 'Consulta', ruta: '/en-linea/consulta' },
       { nombre: 'Preguntas Frecuentes', ruta: '/en-construccion' },
     ],
   },
