@@ -13,7 +13,7 @@ function AccesosRapidos() {
       nombre: 'Impuestos',
       descripcion: 'Consulte información relacionada con impuestos municipales.',
       icono: CircleDollarSign,
-      enlace: '/servicios',
+      enlace: '/direccion-financiera',
     },
     {
       nombre: 'Trámites',
@@ -25,7 +25,7 @@ function AccesosRapidos() {
       nombre: 'Ventanilla Única',
       descripcion: 'Encuentre información y atención municipal en un solo lugar.',
       icono: Building2,
-      enlace: '/servicios',
+      enlace: '/direccion-administrativa#servicio-cliente',
     },
     {
       nombre: 'Denuncias',
