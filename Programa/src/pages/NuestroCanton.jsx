@@ -6,22 +6,14 @@ import {
   Landmark,
 } from 'lucide-react'
 
-import imagenLimon from '../assets/images/portada-limon.png'
+import imagenLimon from '../assets/images/CantonMatina.png'
 
 function NuestroCanton() {
   return (
     <main>
       {/* Portada */}
-      <section className="relative min-h-[420px] flex items-end overflow-hidden">
-        <img
-          src={imagenLimon}
-          alt="Paisaje del cantón de Limón"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/55 to-transparent" />
-
-        <div className="relative max-w-7xl mx-auto w-full px-6 lg:px-8 pb-16 pt-28">
+      <section className="bg-slate-950 py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <span className="text-sm font-semibold uppercase tracking-widest text-lime-300">
             Conozca Limón
           </span>
@@ -30,7 +22,7 @@ function NuestroCanton() {
             Nuestro Cantón
           </h1>
 
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-200">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
             Historia, territorio y riqueza natural de un cantón marcado por
             su identidad caribeña y su importancia para Costa Rica.
           </p>
@@ -182,7 +174,6 @@ function NuestroCanton() {
               </p>
 
               <div className="mt-7 flex items-center gap-3 text-slate-500">
-                <Landmark size={21} className="text-emerald-700" />
                 <span className="text-sm">
                   Cantón Central de Limón, Costa Rica
                 </span>
