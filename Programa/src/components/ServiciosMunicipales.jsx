@@ -86,16 +86,6 @@ function ServiciosMunicipales() {
             </Link>
           ))}
         </div>
-
-        <div className="mt-10 text-center">
-          <Link
-            to="/gestion-municipal"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-lime-300 px-6 py-3 font-semibold text-slate-950 transition-colors hover:bg-lime-200"
-          >
-            Ver toda la Gestión Municipal
-            <ArrowRight size={18} />
-          </Link>
-        </div>
       </div>
     </section>
   )

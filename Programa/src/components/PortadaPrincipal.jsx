@@ -27,23 +27,6 @@ function PortadaPrincipal() {
             Trabajamos por el desarrollo, la seguridad y el bienestar
             de todas las personas limonenses.
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#servicios"
-              className="inline-flex items-center gap-2 bg-lime-300 text-slate-900 font-semibold px-6 py-3 rounded-full hover:bg-lime-200 transition"
-            >
-              Conocer servicios
-              <ArrowRight size={18} />
-            </a>
-
-            <a
-              href="#tramites"
-              className="inline-flex items-center px-6 py-3 rounded-full border border-white/70 text-white font-semibold hover:bg-white hover:text-slate-900 transition"
-            >
-              Ver trámites
-            </a>
-          </div>
         </div>
       </div>
     </section>

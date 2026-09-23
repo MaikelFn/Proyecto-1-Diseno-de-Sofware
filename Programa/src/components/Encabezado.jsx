@@ -39,10 +39,10 @@ const menus = [
     nombre: 'Obras y Proyectos',
     opciones: [
       { nombre: 'Proyectos de Infraestructura', ruta: '/proyectos' },
-      { nombre: 'Distrito Limón Centro', ruta: '/en-construccion' },
-      { nombre: 'Distrito Valle de la Estrella', ruta: '/en-construccion' },
-      { nombre: 'Distrito Río Blanco', ruta: '/en-construccion' },
-      { nombre: 'Distrito Matama', ruta: '/en-construccion' },
+      { nombre: 'Distrito Limón Centro', ruta: '/proyectos?distrito=limon-centro' },
+      { nombre: 'Distrito Valle de la Estrella', ruta: '/proyectos?distrito=valle-de-la-estrella' },
+      { nombre: 'Distrito Río Blanco', ruta: '/proyectos?distrito=rio-blanco' },
+      { nombre: 'Distrito Matama', ruta: '/proyectos?distrito=matama' },
     ],
   },
   {

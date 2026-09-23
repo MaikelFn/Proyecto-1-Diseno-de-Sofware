@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { HardHat, MapPin, Route, Bridge, Construction } from 'lucide-react'
 
 // Datos de prueba (Mock data)
@@ -40,14 +40,39 @@ const proyectosData = [
   },
 ]
 
-const distritos = ['Todos', 'Limón Centro', 'Valle de la Estrella', 'Río Blanco', 'Matama']
+const distritos = [
+  { nombre: 'Todos', valor: 'todos' },
+  { nombre: 'Limón Centro', valor: 'limon-centro' },
+  { nombre: 'Valle de la Estrella', valor: 'valle-de-la-estrella' },
+  { nombre: 'Río Blanco', valor: 'rio-blanco' },
+  { nombre: 'Matama', valor: 'matama' },
+]
 
 function Proyectos() {
-  const [filtroActivo, setFiltroActivo] = useState('Todos')
+  const [searchParams, setSearchParams] = useSearchParams()
 
-  const proyectosFiltrados = filtroActivo === 'Todos' 
-    ? proyectosData 
-    : proyectosData.filter(p => p.distrito === filtroActivo)
+  const distritoURL = searchParams.get('distrito')
+
+  const distritoActivo = distritos.some(
+    (distrito) => distrito.valor === distritoURL
+  )
+    ? distritoURL
+    : 'todos'
+
+  const nombreDistritoActivo = distritos.find(
+    (distrito) => distrito.valor === distritoActivo
+  )?.nombre
+
+  const proyectosFiltrados =
+    distritoActivo === 'todos'
+      ? proyectosData
+      : proyectosData.filter(
+          (proyecto) => proyecto.distrito === nombreDistritoActivo
+        )
+
+  const cambiarDistrito = (valor) => {
+    setSearchParams(valor === 'todos' ? {} : { distrito: valor })
+  }
 
   return (
     <main>
@@ -72,15 +97,17 @@ function Proyectos() {
           <div className="mb-12 flex flex-wrap gap-3">
             {distritos.map((distrito) => (
               <button
-                key={distrito}
-                onClick={() => setFiltroActivo(distrito)}
-                className={`rounded-full px-5 py-2.5 text-sm font-medium transition-colors cursor-pointer outline-none ${
-                  filtroActivo === distrito
-                    ? 'bg-emerald-700 text-white shadow-md'
-                    : 'border border-slate-200 bg-white text-slate-700 hover:border-emerald-600 hover:text-emerald-700'
+                key={distrito.valor}
+                type="button"
+                onClick={() => cambiarDistrito(distrito.valor)}
+                aria-pressed={distritoActivo === distrito.valor}
+                className={`rounded-full border px-5 py-2.5 text-sm font-medium transition-colors ${
+                  distritoActivo === distrito.valor
+                    ? 'border-emerald-700 bg-emerald-700 text-white'
+                    : 'border-slate-200 bg-white text-slate-700 hover:border-emerald-500 hover:text-emerald-700'
                 }`}
               >
-                {distrito}
+                {distrito.nombre}
               </button>
             ))}
           </div>
