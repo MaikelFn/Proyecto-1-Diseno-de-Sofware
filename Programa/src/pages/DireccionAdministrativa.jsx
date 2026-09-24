@@ -180,7 +180,7 @@ function DireccionAdministrativa() {
                   ].map((categoria) => (
                     <Link
                       key={categoria}
-                      to="/en-construccion"
+                      to="/formulario-no-disponible"
                       className="flex items-center justify-between rounded-xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-700"
                     >
                       {categoria}
@@ -236,7 +236,7 @@ function DireccionAdministrativa() {
                 </p>
 
                 <Link
-                  to="/en-construccion"
+                  to="/formulario-no-disponible"
                   className="mt-4 inline-flex items-center gap-2 font-semibold text-emerald-700 hover:text-emerald-800"
                 >
                   Ver inspectores autorizados

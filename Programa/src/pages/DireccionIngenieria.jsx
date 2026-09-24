@@ -294,7 +294,7 @@ function DireccionIngenieria() {
                 <h4 className="text-lg font-bold text-slate-900">Formularios de solicitud</h4>
                 <div className="mt-5 space-y-3">
                   {tramitesZMT.map((tramite, index) => (
-                    <Link key={index} to="/en-construccion" className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 p-4 text-sm font-medium text-slate-700 hover:border-emerald-400 hover:bg-emerald-50">
+                    <Link key={index} to="/formulario-no-disponible" className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 p-4 text-sm font-medium text-slate-700 hover:border-emerald-400 hover:bg-emerald-50">
                       {tramite} <Download size={17} className="shrink-0" />
                     </Link>
                   ))}
@@ -352,7 +352,7 @@ function DireccionIngenieria() {
                 <h4 className="font-semibold text-slate-900">Formularios</h4>
                 <div className="mt-4 space-y-3">
                   {tramitesCatastro.map((tramite, index) => (
-                    <Link key={index} to="/en-construccion" className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-3 text-sm font-medium text-emerald-700 hover:bg-emerald-50">
+                    <Link key={index} to="/formulario-no-disponible" className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-3 text-sm font-medium text-emerald-700 hover:bg-emerald-50">
                       {tramite} <Download size={16} />
                     </Link>
                   ))}
@@ -478,7 +478,7 @@ function DireccionIngenieria() {
                 <h4 className="text-lg font-bold text-slate-900">Campañas y Materiales</h4>
                 <div className="mt-4 space-y-3">
                   {campañasAmbientales.map((campaña, index) => (
-                    <Link key={index} to="/en-construccion" className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-3 text-sm font-medium text-slate-700 hover:border-emerald-400 hover:text-emerald-700 shadow-sm">
+                    <Link key={index} to="/formulario-no-disponible" className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-3 text-sm font-medium text-slate-700 hover:border-emerald-400 hover:text-emerald-700 shadow-sm">
                       <span className="truncate">{campaña}</span>
                       <Download size={16} className="shrink-0 text-emerald-700" />
                     </Link>

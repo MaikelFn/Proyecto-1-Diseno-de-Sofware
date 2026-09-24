@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ScrollToTop from './components/ScrollToTop'
 import Encabezado from './components/Encabezado'
 import PiePagina from './components/PiePagina'
 import Inicio from './pages/Inicio'
@@ -23,10 +24,13 @@ import Destinos from './pages/Destinos'
 import FotosHistoricas from './pages/FotosHistoricas'
 import Comercios from './pages/Comercios'
 import Consulta from './pages/Consulta'
+import FormularioNoDisponible from './pages/FormularioNoDisponible'
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
+
       <Encabezado />
 
       <Routes>
@@ -55,6 +59,7 @@ function App() {
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/en-linea/consulta" element={<Consulta />} />
+        <Route path="/formulario-no-disponible" element={<FormularioNoDisponible />} />
         {/* Cualquier ruta que no exista caerá aquí */}
         <Route path="*" element={<PaginaEnConstruccion />} />
       </Routes>

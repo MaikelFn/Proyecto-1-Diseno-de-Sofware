@@ -156,7 +156,7 @@ function DireccionFinanciera() {
                   {documentosCobros.map((documento) => (
                     <Link
                       key={documento}
-                      to="/en-construccion"
+                      to="/formulario-no-disponible"
                       className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 p-4 text-sm font-medium text-slate-700 transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700"
                     >
                       {documento}
@@ -261,7 +261,7 @@ function DireccionFinanciera() {
                 {formulariosRentas.map((formulario) => (
                   <Link
                     key={formulario}
-                    to="/en-construccion"
+                    to="/formulario-no-disponible"
                     className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 p-4 text-sm font-medium text-slate-700 transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700"
                   >
                     {formulario}
@@ -559,7 +559,7 @@ function DireccionFinanciera() {
                   ].map((documento) => (
                     <Link
                       key={documento}
-                      to="/en-construccion"
+                      to="/formulario-no-disponible"
                       className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700 transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700"
                     >
                       {documento}
