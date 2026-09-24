@@ -7,3 +7,53 @@ html {
 body {
   margin: 0;
 }
+
+/* Ajustes de accesibilidad */
+
+/* Escala los textos que utilizan rem, incluidos los tamaños de Tailwind. */
+html {
+  font-size: calc(16px * var(--escala-texto, 1));
+}
+
+/* Mantiene el panel de accesibilidad en un tamaño estable. */
+#panel-accesibilidad {
+  font-size: 16px;
+}
+
+/* Reducir animaciones */
+html.reducir-movimiento *,
+html.reducir-movimiento *::before,
+html.reducir-movimiento *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Resaltar enlaces */
+html.resaltar-enlaces a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 4px;
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Foco visible para navegación con teclado */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid #047857;
+  outline-offset: 3px;
+}
+
+/* Respeta la preferencia de movimiento del sistema operativo */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

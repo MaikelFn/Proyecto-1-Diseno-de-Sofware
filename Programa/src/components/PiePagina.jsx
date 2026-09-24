@@ -1,153 +1,140 @@
 import { Link } from 'react-router-dom'
 import {
+  Clock3,
+  Mail,
   MapPin,
   Phone,
-  Mail,
-  Clock,
 } from 'lucide-react'
 
 import logo from '../assets/images/logo.png'
 
+const enlaces = [
+  { nombre: 'Inicio', ruta: '/' },
+  { nombre: 'Conózcanos', ruta: '/municipalidad' },
+  { nombre: 'Gestión Municipal', ruta: '/direccion-administrativa' },
+  { nombre: 'Obras y Proyectos', ruta: '/proyectos' },
+  { nombre: 'Transparencia', ruta: '/en-construccion' },
+  { nombre: 'Turismo', ruta: '/en-construccion' },
+  { nombre: 'En Línea', ruta: '/tramites' },
+]
+
 function PiePagina() {
   return (
     <footer className="bg-slate-950 text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-
-          {/* Municipalidad */}
+      <div className="mx-auto max-w-7xl px-6 pb-10 pt-16 lg:px-8">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Identidad institucional */}
           <div>
-            <div className="flex items-center gap-3">
-              <div className="bg-white rounded-xl p-2">
+            <Link to="/" className="inline-flex items-center gap-3">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white p-2">
                 <img
                   src={logo}
                   alt="Escudo de la Municipalidad de Limón"
-                  className="w-12 h-12 object-contain"
+                  className="h-full w-full object-contain"
                 />
               </div>
 
               <div>
-                <h2 className="font-bold text-lg">
+                <span className="block text-lg font-bold leading-snug">
                   Municipalidad de Limón
-                </h2>
+                </span>
 
-                <p className="text-sm text-slate-400">
+                <span className="mt-1 block text-sm text-slate-400">
                   Juntos por un mejor cantón
-                </p>
+                </span>
               </div>
-            </div>
+            </Link>
 
-            <p className="mt-5 text-sm leading-relaxed text-slate-400">
-              Trabajamos por el desarrollo y bienestar de las comunidades
-              del cantón de Limón.
+            <p className="mt-6 max-w-xs text-sm leading-7 text-slate-400">
+              Trabajamos por el desarrollo y bienestar de las
+              comunidades del cantón de Limón.
             </p>
           </div>
 
-          {/* Enlaces */}
+          {/* Navegación */}
           <div>
-            <h3 className="font-bold text-lg mb-5">
-              Enlaces
-            </h3>
+            <h2 className="text-lg font-bold">
+              Explorar el sitio
+            </h2>
 
-            <div className="flex flex-col gap-3 text-sm text-slate-400">
-              <Link to="/" className="hover:text-lime-300 transition">
-                Inicio
-              </Link>
-
-              <Link to="/servicios" className="hover:text-lime-300 transition">
-                Servicios
-              </Link>
-
-              <Link to="/tramites" className="hover:text-lime-300 transition">
-                Trámites
-              </Link>
-
-              <Link to="/proyectos" className="hover:text-lime-300 transition">
-                Proyectos
-              </Link>
-
-              <Link to="/noticias" className="hover:text-lime-300 transition">
-                Noticias
-              </Link>
-            </div>
+            <nav aria-label="Enlaces del pie de página">
+              <ul className="mt-5 space-y-3">
+                {enlaces.map((enlace) => (
+                  <li key={enlace.nombre}>
+                    <Link
+                      to={enlace.ruta}
+                      className="text-sm text-slate-400 transition-colors hover:text-lime-300 focus-visible:text-lime-300"
+                    >
+                      {enlace.nombre}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           {/* Contacto */}
           <div>
-            <h3 className="font-bold text-lg mb-5">
+            <h2 className="text-lg font-bold">
               Contacto
-            </h3>
+            </h2>
 
-            <div className="space-y-4 text-sm text-slate-400">
-
-              <div className="flex gap-3">
+            <ul className="mt-5 space-y-4 text-sm text-slate-400">
+              <li className="flex items-start gap-3">
                 <MapPin
-                  size={19}
-                  className="text-lime-300 shrink-0"
+                  size={18}
+                  className="mt-0.5 shrink-0 text-lime-300"
                 />
-                <span>
-                  Limón, Costa Rica
-                </span>
-              </div>
+                <span>Limón, Costa Rica</span>
+              </li>
 
-              <div className="flex gap-3">
-                <Phone
-                  size={19}
-                  className="text-lime-300 shrink-0"
-                />
-                <span>
+              <li>
+                <a
+                  href="tel:+50627584444"
+                  className="flex items-center gap-3 transition-colors hover:text-lime-300"
+                >
+                  <Phone
+                    size={18}
+                    className="shrink-0 text-lime-300"
+                  />
                   +506 2758-4444
-                </span>
-              </div>
+                </a>
+              </li>
 
-              <div className="flex gap-3">
-                <Mail
-                  size={19}
-                  className="text-lime-300 shrink-0"
-                />
-                <span>
+              <li>
+                <a
+                  href="mailto:alcaldia@municlimon.go.cr"
+                  className="flex items-start gap-3 break-all transition-colors hover:text-lime-300"
+                >
+                  <Mail
+                    size={18}
+                    className="mt-0.5 shrink-0 text-lime-300"
+                  />
                   alcaldia@municlimon.go.cr
-                </span>
-              </div>
+                </a>
+              </li>
 
-              <div className="flex gap-3">
-                <Clock
-                  size={19}
-                  className="text-lime-300 shrink-0"
+              <li className="flex items-center gap-3">
+                <Clock3
+                  size={18}
+                  className="shrink-0 text-lime-300"
                 />
-                <span>
-                  Lunes a viernes
-                </span>
-              </div>
-
-            </div>
+                <span>Lunes a viernes</span>
+              </li>
+            </ul>
           </div>
-
-          {/* Información */}
-          <div>
-            <h3 className="font-bold text-lg mb-5">
-              Municipalidad
-            </h3>
-
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Consulte información sobre servicios, proyectos, noticias
-              y trámites municipales.
-            </p>
-          </div>
-
         </div>
 
-        {/* Línea inferior */}
-        <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col md:flex-row gap-3 justify-between text-xs text-slate-500">
+        {/* Franja inferior */}
+        <div className="mt-14 flex flex-col gap-4 border-t border-slate-800 pt-7 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
           <p>
-            © 2026 Municipalidad de Limón
+            © {new Date().getFullYear()} Municipalidad de Limón.
           </p>
 
           <p>
-            Sitio web municipal
+            Sitio web institucional
           </p>
         </div>
-
       </div>
     </footer>
   )

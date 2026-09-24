@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
+import Accesibilidad from './components/Accesibilidad'
 import Encabezado from './components/Encabezado'
 import PiePagina from './components/PiePagina'
 import Inicio from './pages/Inicio'
@@ -65,6 +66,8 @@ function App() {
       </Routes>
 
       <PiePagina />
+
+      <Accesibilidad />
     </BrowserRouter>
   )
 }
